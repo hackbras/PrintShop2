@@ -29,7 +29,10 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/,
-                use: 'file-loader'
+                use: [{
+                    loader: 'file-loader',
+                    options: { includepaths: 'img/' }
+                }]
             }
         ],
     },
