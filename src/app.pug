@@ -7,12 +7,12 @@ html
   title HTML Tutorial
   body(onload="load()")
     header
-      #sessionCompany
+      div(id="sessionCompany")
         img(src="../assets/img/logoLeaoPlacas2.png" width="63px" height="63px")
-        #nameCompany
+        div(id="nameCompany")
           h1 Leão Placas
           i Visualizando o objetivo da sua empresa
-      span#user Dados usuário
+      span(id="user") Dados usuário
     nav
       a(href="") Home
       a(href="") Sobre
@@ -21,57 +21,54 @@ html
       a(href="") Contatos
     section
       aside.tools
-        form#controls
+        form(id="controls")
           h2 Controles
-          fieldset#basicSettings
+          fieldset(id="basicSettings")
             legend Definições Básicas
             label.legend(for="options") Produto:
-            select#options.control(onchange="changeProduct()")
+            select(id="options" class="control" onchange="changeProduct()")
               option(value="cartao-de-visitas") Cartão de visitas
               option(value="panfleto") Panfleto
               option(value="banner") Banner
               option(value="caneca") Caneca
             label.legend(for="productAmount") Quantidade
-            input#productAmount.control(type="text")
+            input(id="productAmount" class="control" type="text")
             legend Orientação
             label.legend Paisagem
-            input#paisaje.control(type="radio" name="orientation" value="paisaje" onclick="changeProduct()" checked="")
+            input(id="paisaje" class="control" type="radio" name="orientation" value="paisaje" onclick="changeProduct()" checked="")
             label.legend Retrato
-            input#portrait.control(type="radio" name="orientation" value="portrait" onclick="changeProduct()")
-            //
-              <label class="legend" for="rodar">Rotacionar: </label>
-              <input class="control" id="rodar" type="range" min="0" max="180" onchange="resizeAngle(this.value)" value="0" )>
+            input(id="portrait" class="control" type="radio" name="orientation" value="portrait" onclick="changeProduct()")      
           fieldset
             legend Lados
             label.legend(for="oneSide") Frente
-            input#oneSide.control(name="side" type="radio" onchange="changeAmountSides(this.id)" checked="")
+            input(id="oneSide" class="control" name="side" type="radio" onchange="changeAmountSides(this.id)" checked="")
             label.legend(for="twoSide") Frente e Verso
-            input#twoSide.control(name="side" type="radio" onchange="changeAmountSides(this.id)")
+            input(id="twoSide" class="control" name="side" type="radio" onchange="changeAmountSides(this.id)")
             label.legend(for="titleFront") Título Frontal:
-            input#titleFront.control(type="text" onchange="changeTitleFront(this.value)")
+            input(id="titleFront" class="control" type="text" onchange="changeTitleFront(this.value)")
             label.legend(for="textFront") Texto Frontal:
-            input#textFront.control(type="text" onchange="changeTextFront(this.value)")
+            input(id="textFront" class="control" type="text" onchange="changeTextFront(this.value)")
             label.legend(for="titleBack") Título Traseiro:
-            input#titleBack.control(type="text" onchange="changeTitleBack(this.value)")
+            input(id="titleBack" class="control" type="text" onchange="changeTitleBack(this.value)")
             label.legend(for="textBack") Texto Traseiro:
-            input#textBack.control(type="text" onchange="changeTextBack(this.value)")
+            input(id="textBack" class="control" type="text" onchange="changeTextBack(this.value)")
           fieldset
-            legend Estilização 
-            label.legend(for="checkbox") Alterar o tamanho:
-            input#checkbox.control(type="checkbox" onchange="optimazeSize()")
-            label.legend(for="width") Largura:
-            input#width.control(type="range" min="120" max="1000" value="600" onchange="resizeWidthProduct(this.value)" disabled="")
-            label.legend(for="height") Cumprimento:
-            input#height.control(type="range" min="70" max="600" value="370" onchange="resizeHeightProduct(this.value)" disabled="")
-            label.legend(for="zoom") Zoom:
-            input#zoom.control(type="range" min="0" max="5" value="0" onchange="zoomImage(this.value)")
-            label.legend(for="colorFront") Cor da Frente:
-            input#colorFront.control(type="color" value="#FC0" onchange="setBackColorFront(this.id,this.value)")
-            label.legend(for="colorBack") Cor do Verso:
-            input#colorBack.control(type="color" value="#80BFFF" onchange="setBackColorFront(this.id,this.value)")
+            legend Estilização  
+            label(class="legend" for="checkbox") Alterar o tamanho:
+            input(id="checkbox" class="control" type="checkbox" onchange="optimazeSize()")
+            label(class="legend" for="width") Largura:
+            input(id="width" class="control" type="range" min="120" max="1000" value="600" onchange="resizeWidthProduct(this.value)" disabled="")
+            label(class="legend" for="height") Cumprimento:
+            input(id="height" class="control" type="range" min="70" max="600" value="370" onchange="resizeHeightProduct(this.value)" disabled="")
+            label(class="legend" for="zoom") Zoom:
+            input(id="zoom" class="control" type="range" min="0" max="5" value="0" onchange="zoomImage(this.value)")
+            label(class="legend" for="colorFront") Cor da Frente:
+            input(id="colorFront" class="control" type="color" value="#FC0" onchange="setBackColorFront(this.id,this.value)")
+            label(class="legend" for="colorBack") Cor do Verso:
+            input(id="colorBack" class="control" type="color" value="#80BFFF" onchange="setBackColorFront(this.id,this.value)")
             legend Imagem de fundo:
-            label.legend Imagens Prontas:
-            input#modalImagesFront.control(type="button" value="Escolha" onclick="enterModal()")
+            label(class="legend") Imagens Prontas:
+            input(id="modalImagesFront" class="control" type="button" value="Escolha" onclick="enterModal()")
             .images
               span(onclick="returnPage()") Click aqui para Sair.
               .gridImages
@@ -90,47 +87,38 @@ html
                 .boxImage
                   h1 Titulo da Imagem
                   img(src="../assets/img/rose.jpg" alt="Rosa" onclick="selectBankImages(this.src)")
-              #chosenSide
+              div(id"chosenSide")
                 h1 Escolha o lado
                 label(for="chosenSideFront") Frente
-                input#chosenSideFront(name="chosen" value="Frente" type="radio")
+                input(id="chosenSideFront" name="chosen" value="Frente" type="radio")
                 label(for="chosenSideBack") Verso
-                input#chosenSideBack(name="chosen" value="Verso" type="radio")
+                input(id="chosenSideBack" name="chosen" value="Verso" type="radio")
             label.legend(for="leftTopToInclineUp") No computador:
-            input#openFile.control(type="file" accept="image/*" onchange="selectPhoto()")
+            input(id="openFile" class="control" type="file" accept="image/*" onchange="selectPhoto()")
             legend Inclinar
             label.longLegend(for="leftTopToInclineUp") Para cima:
-            input#leftTopToInclineUp.controlLong(type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            input(id="leftTopToInclineUp" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
             label.longLegend(for="rightTopToInclineUp") Para baixo:
-            input#rightTopToInclineUp.controlLong(type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            input(id="rightTopToInclineUp" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
             label.longLegend(for="rightTopToInclineRight") Para direita:
-            input#rightTopToInclineRight.controlLong(type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            input(id="rightTopToInclineRight" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
             label.longLegend(for="rightBottomToInclineRight") Para esquerda:
-            input#rightBottomToInclineRight.controlLong(type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            input(id="rightBottomToInclineRight" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
           fieldset
             legend Cantos:
             legend Arredondar:
             label.legend(for="cantosSuperiorEsquerdo") Superior esquerdo:
-            input#cantosSuperiorEsquerdo.control(type="range" min="0" max="1000" value="0" onchange="setCornerTopLeft(this.value)")
+            input(id="cantosSuperiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerTopLeft(this.value)")
             label.legend(for="cantosSuperiorDireito") Superior direito:
-            input#cantosSuperiorDireito.control(type="range" min="0" max="1000" value="0" onchange="setCornerTopRight(this.value)")
+            input(id="cantosSuperiorDireito" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerTopRight(this.value)")
             label.legend(for="cantosInferiorEsquerdo") Inferior esquerdo:
-            input#cantosInferiorEsquerdo.control(type="range" min="0" max="1000" value="0" onchange="setCornerBottomLeft(this.value)")
+            input(id="cantosInferiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerBottomLeft(this.value)")
             label.legend(for="cantosInferiorDireito") Inferior direito:
-            input#cantosInferiorEsquerdo.control(type="range" min="0" max="1000" value="0" onchange="setCornerBottomRight(this.value)")
-            //
-              <legend>Achatar:</legend>
-              <label class="legend" for="cantosSuperiorEsquerdo">Superior esquerdo:</label>
-              <input class="control" id="cantosSuperiorEsquerdo" type="range" min="0" max="1000" value="0" onchange="setCornerTopLeft(this.value)">
-              <label class="legend" for="cantosSuperiorDireito">Superior direito:</label>
-              <input class="control" id="cantosSuperiorDireito" type="range" min="0" max="1000" value="0" onchange="setCornerTopRight(this.value)">
-              <label class="legend" for="cantosInferiorEsquerdo">Inferior esquerdo:</label>
-              <input class="control" id="cantosInferiorEsquerdo" type="range" min="0" max="1000" value="0" onchange="setCornerBottomLeft(this.value)">
-              <label class="legend" for="cantosInferiorDireito">Inferior direito:</label>
-              <input class="control" id="cantosInferiorEsquerdo" type="range" min="0" max="1000" value="0" onchange="setCornerBottomRight(this.value)">
+            input(id="cantosInferiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerBottomRight(this.value)")
+            
       article.displayArea
         h1 Monte sua arte
-        #tabTools
+        div(id="tabTools")
           li
             a(href="") Arquivo
             ul
@@ -166,9 +154,9 @@ html
           li
             a(href="#") Formatar
             ul
-              li#toolsFont
+              li(id="toolsFont")
                 a(href="#") Fonte
-                ul#menuFont
+                ul(id="menuFont")
                   li
                     a(href="#") Tipo
                   li
@@ -187,9 +175,9 @@ html
                 a(href="#") Margem
               li
                 a(href="#") Espaçamento
-              li#toolsFilter
+              li(id="toolsFilter")
                 a(href="#") Filtros de Imagem
-                ul#menuFilter
+                ul(id="menuFilter")
                   li
                     a(href="#") negativo
                   li
@@ -212,22 +200,22 @@ html
             a(href="#") Tabela
           li
             a(href="#") Ajuda
-        #showWidthProduct
+        div(id"showWidthProduct")
           label(for="WidthProduct") Largura
           br
-          input#WidthProduct(type="text" placeholder="0" onchange="resizeWidthProduct(this.value)")
-        .displayPanel
-          #product.display_paisaje
-            span#productBack.cardBack
-              h1.product_titleBack Título Trazeiro
-              p.product_textBack Texto trazeiro
-            span#productFace.cardFront
-              h1.product_titleFront Título Frontal
-              p.product_textFront Texto Frontal
-        #showHeightProduct
+          input(id="WidthProduct" type="text" placeholder="0" onchange="resizeWidthProduct(this.value)")
+        div(class"displayPanel")
+          div(id="product" class="display_paisaje")
+            span(id="productBack" class="cardBack")
+              h1(class="product_titleBack") Título Trazeiro
+              p(class="product_textBack") Texto trazeiro
+            span(id="productFace" class="cardFront")
+              h1(class="product_titleFront") Título Frontal
+              p(class="product_textFront") Texto Frontal
+        div(id="showHeightProduct")
           label(for="heightProduct") Altura
           br
-          input#heightProduct(type="text" placeholder="0" onchange="resizeHeightProduct(this.value)")
+          inputi(id="heightProduct" type="text" placeholder="0" onchange="resizeHeightProduct(this.value)")
     footer
       details
         summary Copyright 2017
