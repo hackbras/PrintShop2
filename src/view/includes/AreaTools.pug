@@ -1,0 +1,96 @@
+aside(class="tools")
+        form(id="controls")
+          h2 Controles
+          fieldset(id="basicSettings")
+            legend Definições Básicas
+            label(class="legend" for="options") Produto:
+            select(id="options" class="control" onchange="changeProduct()")
+              option(value="cartao-de-visitas") Cartão de visitas
+              option(value="panfleto") Panfleto
+              option(value="banner") Banner
+              option(value="caneca") Caneca
+            label(class="legend" for="productAmount") Quantidade
+            input(id="productAmount" class="control" type="text")
+            legend Orientação
+            label(class="legend") Paisagem
+            input(id="paisaje" class="control" type="radio" name="orientation" value="paisaje" onclick="changeProduct()" checked="")
+            label(class="legend") Retrato
+            input(id="portrait" class="control" type="radio" name="orientation" value="portrait" onclick="changeProduct()")      
+          fieldset
+            legend Lados
+            label(class="legend" for="oneSide") Frente
+            input(id="oneSide" class="control" name="side" type="radio" onchange="changeAmountSides(this.id)" checked="")
+            label(class="legend" for="twoSide") Frente e Verso
+            input(id="twoSide" class="control" name="side" type="radio" onchange="changeAmountSides(this.id)")
+            label(class="legend" for="titleFront") Título Frontal:
+            input(id="titleFront" class="control" type="text" onchange="changeTitleFront(this.value)")
+            label(class="legend" for="textFront") Texto Frontal:
+            input(id="textFront" class="control" type="text" onchange="changeTextFront(this.value)")
+            label(class="legend" for="titleBack") Título Traseiro:
+            input(id="titleBack" class="control" type="text" onchange="changeTitleBack(this.value)")
+            label(class="legend" for="textBack") Texto Traseiro:
+            input(id="textBack" class="control" type="text" onchange="changeTextBack(this.value)")
+          fieldset
+            legend Estilização  
+            label(class="legend" for="checkbox") Alterar o tamanho:
+            input(id="checkbox" class="control" type="checkbox" onchange="optimazeSize()")
+            label(class="legend" for="width") Largura:
+            input(id="width" class="control" type="range" min="120" max="1000" value="600" onchange="resizeWidthProduct(this.value)" disabled="")
+            label(class="legend" for="height") Cumprimento:
+            input(id="height" class="control" type="range" min="70" max="600" value="370" onchange="resizeHeightProduct(this.value)" disabled="")
+            label(class="legend" for="zoom") Zoom:
+            input(id="zoom" class="control" type="range" min="0" max="5" value="0" onchange="zoomImage(this.value)")
+            label(class="legend" for="colorFront") Cor da Frente:
+            input(id="colorFront" class="control" type="color" value="#FC0" onchange="setBackColorFront(this.id,this.value)")
+            label(class="legend" for="colorBack") Cor do Verso:
+            input(id="colorBack" class="control" type="color" value="#80BFFF" onchange="setBackColorFront(this.id,this.value)")
+            legend Imagem de fundo:
+            label(class="legend") Imagens Prontas:
+            input(id="modalImagesFront" class="control" type="button" value="Escolha" onclick="enterModal()")
+            div(class="images")
+              span(onclick="returnPage()") Click aqui para Sair.
+              div(class="gridImages")
+                div(class="boxImage")
+                  h1 Titulo da Imagem
+                  img(src="../assets/img/bussiness.jpg" alt="Negócios" onclick="selectBankImages(this.src)")
+                div(class="boxImage")
+                  h1 Titulo da Imagem
+                  img(src="../assets/img/graphic.jpg" alt="Gráfica" onclick="selectBankImages(this.src)")
+                div(class="boxImage")
+                  h1 Titulo da Imagem
+                  img(src="../assets/img/rose.jpg" alt="Logo" onclick="selectBankImages(this.src)")
+                div(class="boxImage")
+                  h1 Titulo da Imagem
+                  img(src="../assets/img/maintenance.jpg" alt="Manutenção" onclick="selectBankImages(this.src)")
+                div(class="boxImage")
+                  h1 Titulo da Imagem
+                  img(src="../assets/img/rose.jpg" alt="Rosa" onclick="selectBankImages(this.src)")
+              div(id"chosenSide")
+                h1 Escolha o lado
+                label(for="chosenSideFront") Frente
+                input(id="chosenSideFront" name="chosen" value="Frente" type="radio")
+                label(for="chosenSideBack") Verso
+                input(id="chosenSideBack" name="chosen" value="Verso" type="radio")
+            label(class="legend" for="leftTopToInclineUp") No computador:
+            input(id="openFile" class="control" type="file" accept="image/*" onchange="selectPhoto()")
+            legend Inclinar
+            label(class="longLegend" for="leftTopToInclineUp") Para cima:
+            input(id="leftTopToInclineUp" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            label(class="longLegend" for="rightTopToInclineUp") Para baixo:
+            input(id="rightTopToInclineUp" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            label(class="longLegend" for="rightTopToInclineRight") Para direita:
+            input(id="rightTopToInclineRight" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+            label(class="longLegend" for="rightBottomToInclineRight") Para esquerda:
+            input(id="rightBottomToInclineRight" class="controlLong" type="range" min="0" max="20" value="0" onchange="incline(this.id,this.value)")
+          fieldset
+            legend Cantos:
+            legend Arredondar:
+            label(class="legend" for="cantosSuperiorEsquerdo") Superior esquerdo:
+            input(id="cantosSuperiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerTopLeft(this.value)")
+            label(class="legend" for="cantosSuperiorDireito") Superior direito:
+            input(id="cantosSuperiorDireito" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerTopRight(this.value)")
+            label(class="legend" for="cantosInferiorEsquerdo") Inferior esquerdo:
+            input(id="cantosInferiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerBottomLeft(this.value)")
+            label(class="legend" for="cantosInferiorDireito") Inferior direito:
+            input(id="cantosInferiorEsquerdo" class="control" type="range" min="0" max="1000" value="0" onchange="setCornerBottomRight(this.value)")
+            

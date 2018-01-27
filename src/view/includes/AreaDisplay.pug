@@ -1,0 +1,100 @@
+article(class="displayArea")
+        h1 Monte sua arte
+        div(id="tabTools")
+          li
+            a(href="") Arquivo
+            ul
+              li
+                a(href="#") Salvar
+              li
+                a(href="#") Salvar como
+          li
+            a(href="#") Editar
+            ul
+              li
+                a(href="#") Desfazer alteração
+              li
+                a(href="#") Copiar
+              li
+                a(href="#") Colar
+          li
+            a(href="#") Exibir
+            ul
+              li
+                a(href="#") Exibição 3d
+              li
+                a(href="#") Exibição de duas faces
+              li
+                a(href="#") Exibição de uma face
+          li
+            a(href="#") Inserir
+            ul
+              li
+                a(href="#") Imagem de fundo
+              li
+                a(href="#") Imagem
+          li
+            a(href="#") Formatar
+            ul
+              li(id="toolsFont")
+                a(href="#") Fonte
+                ul(id="menuFont")
+                  li
+                    a(href="#") Tipo
+                  li
+                    a(href="#") Tamanho
+                  li
+                    a(href="#") Negrito
+                  li
+                    a(href="#") Itálico
+                  li
+                    a(href="#") Sublinhado
+              li
+                a(href="#") Coluna
+              li
+                a(href="#") Borda
+              li
+                a(href="#") Margem
+              li
+                a(href="#") Espaçamento
+              li(id="toolsFilter")
+                a(href="#") Filtros de Imagem
+                ul(id="menuFilter")
+                  li
+                    a(href="#") negativo
+                  li
+                    a(href="#") Foco
+                  li
+                    a(href="#") sepia
+                  li
+                    a(href="#") inverter cor
+                  li
+                    a(href="#") escala de cinza
+                  li
+                    a(href="#") brilho
+                  li
+                    a(href="#") contraste
+                  li
+                    a(href="#") transparencia
+                  li
+                    a(href="#") saturação
+          li
+            a(href="#") Tabela
+          li
+            a(href="#") Ajuda
+        div(id"showWidthProduct")
+          label(for="WidthProduct") Largura
+          br
+          input(id="WidthProduct" type="text" placeholder="0" onchange="resizeWidthProduct(this.value)")
+        div(class"displayPanel")
+          div(id="product" class="display_paisaje")
+            span(id="productBack" class="cardBack")
+              h1(class="product_titleBack") Título Trazeiro
+              p(class="product_textBack") Texto trazeiro
+            span(id="productFace" class="cardFront")
+              h1(class="product_titleFront") Título Frontal
+              p(class="product_textFront") Texto Frontal
+        div(id="showHeightProduct")
+          label(for="heightProduct") Altura
+          br
+          inputi(id="heightProduct" type="text" placeholder="0" onchange="resizeHeightProduct(this.value)")
