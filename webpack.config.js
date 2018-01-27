@@ -17,7 +17,16 @@ module.exports = {
             },
             {
                 test: /\.pug$/,
-                use: ['html-loader', 'pug-html-loader']
+                use: [{
+                        loader: 'html-loader',
+                        options: {
+                            conservativeCollapse: true
+                        }
+                    },
+                    {
+                        loader: 'pug-html-loader'
+                    }
+                ]
             },
             {
                 test: /\.sass/,
@@ -43,7 +52,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Project Demo',
-            template: './src/index.pug'
+            filename: 'index.html',
+            template: './src/app.pug',
+            showErrors: true
         }),
         new ExtractTextPlugin({
             filename: 'bundle.css',
