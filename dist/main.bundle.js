@@ -67,18 +67,10 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-(function webpackMissingModule() { throw new Error("Cannot find module \"options\""); }());
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 
-__webpack_require__(2);
+__webpack_require__(1);
 
 // class Rectangle extends Shape {
 //     constructor(id, x, y, width, height) {
@@ -529,7 +521,7 @@ function selectPhoto() {
 }
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
